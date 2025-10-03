@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,99 +20,92 @@
       border: none; border-radius: 5px;
       font-size: 1rem; cursor: pointer;
       text-decoration: none;
-    }
+    }.section { padding: 50px 20px; text-align: center; }
+.highlights, .location, .plans, .why-godrej, .form-section {
+  background-color: #f9f9f9;
+}
 
-    .section { padding: 50px 20px; text-align: center; }
-    .highlights, .location, .plans, .why-godrej, .form-section {
-      background-color: #f9f9f9;
-    }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
 
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      width: 280px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+.form-section form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
 
-    .form-section form {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: left;
-    }
+form input, form select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
 
-    form input, form select {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
+form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
 
-    form button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 100%;
-    }
+.success-message, .error-message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  display: none;
+}
 
-    .success-message, .error-message {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-      display: none;
-    }
+.success-message { color: green; }
+.error-message { color: red; }
 
-    .success-message { color: green; }
-    .error-message { color: red; }
+footer {
+  background: #222;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
 
-    footer {
-      background: #222;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-    }
+@media (max-width: 768px) {
+  header h1 { font-size: 2rem; }
+  .grid { flex-direction: column; align-items: center; }
+}
 
-    @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      .grid { flex-direction: column; align-items: center; }
-    }
   </style>
 </head>
-<body>
-
-<header>
+<body><header>
   <h1>Live the Godrej Life at Thanisandra</h1>
-  <p>2, 3 & 4 BHK Premium Apartments in North Bangalore</p>
+  <p>2 & 3 BHK Premium Apartments in North Bangalore</p>
   <a href="#lead-form" class="cta-btn">Get Brochure</a>
-</header>
-
-<section class="section highlights">
+</header><section class="section highlights">
   <h2>Project Highlights</h2>
   <div class="grid">
-    <div class="card">✅ RERA Approved</div>
+    <div class="card">📝 RERA Approval in Process</div>
     <div class="card">🏙️ Prime Location – Thanisandra Road</div>
     <div class="card">🏊 Clubhouse & Pool</div>
     <div class="card">🛣️ Close to Airport & ORR</div>
-    <div class="card">🏢 2, 3 BHK Options</div>
+    <div class="card">🏢 2 & 3 BHK Options</div>
     <div class="card">🌳 Sustainable Green Living</div>
   </div>
-</section>
-
-<section class="section location">
+</section><section class="section location">
   <h2>Location Advantages</h2>
   <p>Perfectly placed for both work and life.</p>
   <div class="grid">
@@ -121,30 +113,27 @@
     <div class="card">✈️ 25 mins to Kempegowda Airport</div>
     <div class="card">🏫 Near Schools & Hospitals</div>
   </div>
-</section>
-
-<section class="section plans">
+</section><section class="section plans">
   <h2>Floor Plans & Pricing</h2>
   <div class="grid">
     <div class="card">
-      <strong>2 BHK</strong><br>Size: 1100 sq.ft<br>Starting at ₹1.62 Cr*
+      <strong>2 BHK</strong><br>Size: 1193 - 1242 sq.ft<br>Price: ₹1.62 Cr*
     </div>
     <div class="card">
-      <strong>3 BHK</strong><br>Size: 1800 sq.ft<br>Starting at ₹2.6 Cr*
+      <strong>3 BHK (2T Premium)</strong><br>Size: 1888 sq.ft<br>Price: ₹2.53 Cr*
+    </div>
+    <div class="card">
+      <strong>3 BHK (3T Premium)</strong><br>Size: 2185 - 2305 sq.ft<br>Price: ₹2.95 Cr*
     </div>
   </div>
-</section>
-
-<section class="section why-godrej">
+</section><section class="section why-godrej">
   <h2>Why Choose Godrej?</h2>
   <div class="grid">
     <div class="card">🏆 Trusted Brand with 30+ Years Experience</div>
     <div class="card">🔑 On-time Delivery Promise</div>
     <div class="card">📈 High ROI & Investment Potential</div>
   </div>
-</section>
-
-<section class="section form-section" id="lead-form">
+</section><section class="section form-section" id="lead-form">
   <h2>Get Complete Details</h2>
   <p>Fill the form below to receive brochure, pricing, and offers</p>
   <form id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
@@ -154,32 +143,25 @@
     <select name="preferred_unit" required>
       <option value="" disabled selected>Select Preferred Unit</option>
       <option>2 BHK</option>
-      <option>3 BHK</option>
-      <option>4 BHK</option>
-    </select>
+      <option>3 BHK (2T Premium)</option>
+      <option>3 BHK (3T Premium)</option>
+    </select><!-- Formspree honeypot field to reduce spam -->
+<input type="text" name="_gotcha" style="display:none" />
 
-    <!-- Formspree honeypot field to reduce spam -->
-    <input type="text" name="_gotcha" style="display:none" />
+<!-- Auto-response email setup -->
+<input type="hidden" name="_subject" value="New Inquiry for Godrej Thanisandra" />
+<input type="hidden" name="_cc" value="your-email@example.com" />
 
-    <!-- Auto-response email setup -->
-    <input type="hidden" name="_subject" value="New Inquiry for Godrej Thanisandra" />
-    <input type="hidden" name="_cc" value="your-email@example.com" />
+<button type="submit">Send Me Details</button>
 
-    <button type="submit">Send Me Details</button>
   </form>
   <p class="success-message" id="success-msg">Thank you! Your inquiry has been received. We'll get back to you soon.</p>
-  <p class="error-message" id="error-msg">Oops! Something went wrong. Please try again.</p>
-
-  <p>or</p>
-  <a href="https://wa.me/919999999999?text=I'm%20interested%20in%20Godrej%20Thanisandra%20project" class="cta-btn" style="background:#25D366;">📱 Chat on WhatsApp</a>
-</section>
-
-<footer>
+  <p class="error-message" id="error-msg">Oops! Something went wrong. Please try again.</p>  <p>or</p>
+  <a href="https://wa.me/917989506122?text=I'm%20interested%20in%20Godrej%20Thanisandra%20project" class="cta-btn" style="background:#25D366;">📱 Chat on WhatsApp</a>
+</section><footer>
   <p>&copy; 2025 Godrej Properties. All Rights Reserved.</p>
   <p>RERA No: PRM/KA/RERA/XXXXX</p>
-</footer>
-
-<script>
+</footer><script>
   // Form submit handler for showing success/error message without page reload
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('success-msg');
@@ -204,7 +186,5 @@
       successMsg.style.display = 'none';
     }
   });
-</script>
-
-</body>
+</script></body>
 </html>
