@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Godrej Thanisandra - Premium Apartments in Bangalore</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #222;
-      background: #FDFDFD;
+      background: #f0f4ff;
       overflow-x: hidden;
     }
     header {
-      background: linear-gradient(115deg, #FF5733bb, #00d4ff99), url('https://www.godrejthanisandrabangalore.com/img/banner-image.webp') center/cover no-repeat;
+      background: linear-gradient(135deg, #0078d7cc, #00d4ffcc), url('https://www.godrejthanisandrabangalore.com/img/banner-image.webp') center/cover no-repeat;
       height: 100vh;
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; text-align: center; color: #fff;
-      text-shadow: 0 0 12px rgba(0,0,0,0.7);
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
       padding: 0 20px;
     }
     header h1 {
@@ -33,7 +34,7 @@
       font-weight: 600;
     }
     .cta-btn {
-      background: linear-gradient(90deg, #FF5733 0%, #00D4FF 100%);
+      background: linear-gradient(90deg, #00e0ff 0%, #0078d7 50%, #00e0ff 100%);
       color: #fff;
       padding: 18px 40px;
       border: none;
@@ -41,7 +42,7 @@
       font-size: 1.2rem;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 0 20px #FF5733, 0 0 32px #00D4FF;
+      box-shadow: 0 0 15px #00cfff, 0 0 30px #00e0ff;
       position: relative;
       overflow: hidden;
       transition: background 0.4s ease, box-shadow 0.4s ease;
@@ -53,14 +54,14 @@
       left: -40%;
       width: 40%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.5);
       transform: skewX(-25deg) translateX(0);
       transition: transform 0.5s ease, opacity 0.3s ease;
       opacity: 0;
       pointer-events: none;
     }
     .cta-btn:hover, .cta-btn:focus {
-      box-shadow: 0 0 30px #FF5733, 0 0 56px #00D4FF;
+      box-shadow: 0 0 25px #00d8ff, 0 0 50px #00e0ff;
       outline: none;
     }
     .cta-btn:hover::before {
@@ -75,21 +76,21 @@
       margin: auto;
     }
     .highlights, .location, .plans, .why-godrej, .form-section {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(255, 87, 51, 0.14);
+      box-shadow: 0 6px 15px rgba(0, 120, 215, 0.2);
       margin-bottom: 50px;
       padding: 40px 20px;
-      color: #222;
+      color: #004080;
     }
     h2 {
       font-size: 2.25rem;
       margin-bottom: 30px;
       font-weight: 700;
-      color: #FF5733;
+      color: #0078d7;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      text-shadow: 0 1px 2px rgba(255,87,51,0.18);
+      text-shadow: 0 1px 2px rgba(0,120,215,0.4);
     }
     .grid {
       display: flex;
@@ -99,19 +100,19 @@
       margin-top: 20px;
     }
     .card {
-      background: linear-gradient(140deg,#FFF9EC, #EAF9FD 90%);
+      background: linear-gradient(145deg, #e0f0ff, #ffffff);
       padding: 25px 20px;
       border-radius: 12px;
       width: 300px;
-      box-shadow: 0 8px 20px rgba(255, 87, 51, 0.13);
+      box-shadow: 0 8px 20px rgba(0,120,215,0.15);
       font-weight: 600;
-      color: #444;
+      color: #003366;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,212,255,0.22);
+      box-shadow: 0 15px 30px rgba(0,120,215,0.25);
     }
 
     .form-section form {
@@ -123,19 +124,19 @@
       width: 100%;
       padding: 14px 16px;
       margin: 12px 0;
-      border: 2px solid #FF5733;
+      border: 2px solid #0078d7;
       border-radius: 8px;
       font-size: 1.1rem;
-      color: #222;
+      color: #004080;
       transition: border-color 0.3s ease;
     }
     form input:focus, form select:focus {
-      border-color: #00D4FF;
+      border-color: #00e0ff;
       outline: none;
-      box-shadow: 0 0 8px #00D4FF;
+      box-shadow: 0 0 10px #00cfff;
     }
     form button {
-      background: linear-gradient(90deg, #FF5733 0%, #00D4FF 100%);
+      background: linear-gradient(90deg, #00e0ff 0%, #0078d7 50%, #00e0ff 100%);
       color: white;
       border: none;
       padding: 15px 0;
@@ -143,7 +144,7 @@
       font-size: 1.2rem;
       cursor: pointer;
       width: 100%;
-      box-shadow: 0 0 18px #FF5733, 0 0 44px #00D4FF inset;
+      box-shadow: 0 0 20px #00cfff, 0 0 40px #00e0ff inset;
       transition: box-shadow 0.4s ease;
       position: relative;
       overflow: hidden;
@@ -155,14 +156,14 @@
       left: -40%;
       width: 40%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.5);
       transform: skewX(-25deg) translateX(0);
       transition: transform 0.5s ease, opacity 0.3s ease;
       opacity: 0;
       pointer-events: none;
     }
     form button:hover, form button:focus {
-      box-shadow: 0 0 36px #FF5733, 0 0 60px #00D4FF inset;
+      box-shadow: 0 0 40px #00d8ff, 0 0 70px #00e0ff inset;
       outline: none;
     }
     form button:hover::before {
@@ -177,12 +178,13 @@
     }
     .success-message { color: #28a745; }
     .error-message { color: #dc3545; }
+
     .form-section p, .form-section a.cta-btn {
       text-align: center;
       margin-top: 20px;
       font-weight: 600;
       font-size: 1.1rem;
-      color: #FF5733;
+      color: #0078d7;
     }
     .form-section a.cta-btn {
       background: #25D366;
@@ -191,14 +193,13 @@
       padding: 15px 40px;
       display: inline-block;
       transition: box-shadow 0.3s ease;
-      color: #fff;
     }
     .form-section a.cta-btn:hover, .form-section a.cta-btn:focus {
       box-shadow: 0 0 25px #25d366;
       outline: none;
     }
     footer {
-      background: #FF5733;
+      background: #004080;
       color: #fff;
       padding: 40px 20px;
       text-align: center;
@@ -252,7 +253,6 @@
     <div class="card">📍 15 mins from Manyata Tech Park</div>
     <div class="card">✈️ 25 mins to Kempegowda Airport</div>
     <div class="card">🏫 Near Schools & Hospitals</div>
-    <div class="card">🚗 10 mins Drive from Bhartiya City</div>
   </div>
 </section>
 
@@ -293,13 +293,17 @@
       <option>3 BHK (2T Premium)</option>
       <option>3 BHK (3T Premium)</option>
     </select>
+    <!-- Formspree honeypot field to reduce spam -->
     <input type="text" name="_gotcha" style="display:none" />
+    <!-- Auto-response email setup -->
     <input type="hidden" name="_subject" value="New Inquiry for Godrej Thanisandra" />
     <input type="hidden" name="_cc" value="your-email@example.com" />
     <button type="submit">Send Me Details</button>
   </form>
+
   <p class="success-message" id="success-msg">Thank you! Your inquiry has been received. We'll get back to you soon.</p>
   <p class="error-message" id="error-msg">Oops! Something went wrong. Please try again.</p>
+
   <p>or</p>
   <a href="https://wa.me/917989506122?text=I'm%20interested%20in%20Godrej%20Thanisandra%20project" class="cta-btn">📱 Chat on WhatsApp</a>
 </section>
@@ -310,6 +314,7 @@
 </footer>
 
 <script>
+  // Form submit handler for showing success/error message without page reload
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
