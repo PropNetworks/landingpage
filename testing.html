@@ -12,75 +12,71 @@
       color: #222;
       background: #f0f4ff;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
 
-    /* ======== NAVIGATION BAR ======== */
+    /* --- NAVIGATION --- */
     nav {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
-      background: rgba(0, 64, 128, 0.9);
+      background: rgba(0,120,215,0.95);
       color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 25px;
-      z-index: 9999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
+    nav .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .nav-links {
-      display: flex;
-      gap: 25px;
+    nav ul {
       list-style: none;
+      display: flex;
+      gap: 20px;
     }
-    .nav-links a {
+    nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
     }
-    .nav-links a:hover {
+    nav ul li a:hover {
       color: #00e0ff;
     }
-
-    /* Hamburger Menu */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: 5px;
+      gap: 4px;
     }
     .hamburger div {
-      width: 28px;
+      width: 25px;
       height: 3px;
       background: #fff;
-      border-radius: 3px;
+      border-radius: 2px;
       transition: all 0.3s ease;
     }
 
-    /* Mobile Menu Active State */
-    .nav-active {
-      right: 0;
-    }
-
     @media (max-width: 768px) {
-      .nav-links {
+      nav ul {
         position: fixed;
         top: 60px;
         right: -100%;
-        background: rgba(0, 64, 128, 0.95);
+        background: rgba(0,120,215,0.98);
         flex-direction: column;
-        align-items: center;
         width: 200px;
         height: 100vh;
-        transition: right 0.4s ease;
         padding-top: 40px;
+        gap: 25px;
+        transition: right 0.4s ease;
+      }
+      nav ul.show {
+        right: 0;
       }
       .hamburger {
         display: flex;
@@ -109,9 +105,15 @@
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 20px;
+      letter-spacing: 1px;
       text-transform: uppercase;
+      margin-top: 80px; /* for navbar space */
     }
-    header p { font-size: 1.5rem; margin-bottom: 30px; font-weight: 600; }
+    header p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
     .cta-btn {
       background: linear-gradient(90deg, #00e0ff 0%, #0078d7 50%, #00e0ff 100%);
       color: #fff;
@@ -119,13 +121,34 @@
       border: none;
       border-radius: 50px;
       font-size: 1.2rem;
+      cursor: pointer;
       text-decoration: none;
       box-shadow: 0 0 15px #00cfff, 0 0 30px #00e0ff;
       position: relative;
       overflow: hidden;
-      transition: all 0.4s ease;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
     }
-    .cta-btn:hover { box-shadow: 0 0 25px #00d8ff, 0 0 50px #00e0ff; }
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -40%;
+      width: 40%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: skewX(-25deg) translateX(0);
+      transition: transform 0.5s ease, opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      box-shadow: 0 0 25px #00d8ff, 0 0 50px #00e0ff;
+      outline: none;
+    }
+    .cta-btn:hover::before {
+      transform: skewX(-25deg) translateX(150%);
+      opacity: 1;
+    }
 
     .section {
       padding: 60px 20px;
@@ -133,7 +156,7 @@
       max-width: 1200px;
       margin: auto;
     }
-    .highlights, .location, .plans, .why-godrej, .form-section, .about, .gallery {
+    .highlights, .location, .plans, .why-godrej, .form-section {
       background-color: #ffffff;
       border-radius: 15px;
       box-shadow: 0 6px 15px rgba(0, 120, 215, 0.2);
@@ -147,12 +170,15 @@
       font-weight: 700;
       color: #0078d7;
       text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 1px 2px rgba(0,120,215,0.4);
     }
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
+      margin-top: 20px;
     }
     .card {
       background: linear-gradient(145deg, #e0f0ff, #ffffff);
@@ -161,6 +187,7 @@
       width: 300px;
       box-shadow: 0 8px 20px rgba(0,120,215,0.15);
       font-weight: 600;
+      color: #003366;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
@@ -168,13 +195,31 @@
       box-shadow: 0 15px 30px rgba(0,120,215,0.25);
     }
 
-    .gallery img {
-      width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+    form input, form select {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 12px 0;
+      border: 2px solid #0078d7;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      color: #004080;
     }
-    .gallery img:hover { transform: scale(1.05); }
+    form input:focus, form select:focus {
+      border-color: #00e0ff;
+      outline: none;
+      box-shadow: 0 0 10px #00cfff;
+    }
+    form button {
+      background: linear-gradient(90deg, #00e0ff 0%, #0078d7 50%, #00e0ff 100%);
+      color: white;
+      border: none;
+      padding: 15px 0;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 0 20px #00cfff, 0 0 40px #00e0ff inset;
+    }
 
     footer {
       background: #004080;
@@ -182,6 +227,7 @@
       padding: 40px 20px;
       text-align: center;
       font-weight: 600;
+      letter-spacing: 0.1em;
     }
 
     @media (max-width: 768px) {
@@ -189,77 +235,80 @@
       header p { font-size: 1.2rem; }
       .grid { flex-direction: column; align-items: center; }
       .card { width: 90%; }
+      .section { padding: 40px 10px; }
     }
   </style>
 </head>
 <body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Godrej Thanisandra</div>
+    <ul id="navLinks">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="#why-godrej">Why Godrej</a></li>
+      <li><a href="#lead-form">Enquiry</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 
-<!-- ====== NAVIGATION ====== -->
-<nav>
-  <div class="logo">Godrej Thanisandra</div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#about">About Project</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</nav>
-
-<!-- ====== HOME ====== -->
-<header id="home">
+<header id="top">
   <h1>Live the Godrej Life at Thanisandra</h1>
   <p>2 & 3 BHK Premium Apartments in North Bangalore</p>
   <a href="#lead-form" class="cta-btn">Get Brochure</a>
 </header>
 
-<!-- ====== GALLERY ====== -->
-<section class="section gallery" id="gallery">
-  <h2>Gallery</h2>
+<section class="section highlights" id="highlights">
+  <h2>Project Highlights</h2>
   <div class="grid">
-    <img src="https://www.godrejthanisandrabangalore.com/img/gallery1.webp" alt="Gallery 1">
-    <img src="https://www.godrejthanisandrabangalore.com/img/gallery2.webp" alt="Gallery 2">
-    <img src="https://www.godrejthanisandrabangalore.com/img/gallery3.webp" alt="Gallery 3">
+    <div class="card">📝 RERA Approval in Process</div>
+    <div class="card">🏙️ Prime Location – Thanisandra Road</div>
+    <div class="card">🏊 Clubhouse & Pool</div>
+    <div class="card">🛣️ Close to Airport & ORR</div>
+    <div class="card">🏢 2 & 3 BHK Options</div>
+    <div class="card">🌳 Sustainable Green Living</div>
   </div>
 </section>
 
-<!-- ====== ABOUT PROJECT ====== -->
-<section class="section about" id="about">
-  <h2>About Project</h2>
-  <p><strong>Launching Now Luxury Apartments In Thanisandra @ Rs.1.62 Cr* Onwards</strong><br>
-  📍Thanisandra, North Bangalore</p><br>
-  <p><b>Total Land Parcel:</b> 7 Acres<br>
-  <b>Number Of Units:</b> 558 Units<br>
-  <b>Number Of Towers:</b> 10 Towers<br>
-  <b>Structure:</b> 2B+G+13<br>
-  <b>Typologies:</b> 2 and 3 BHK</p><br>
-
-  <p><b>2BHK</b> (1193–1242 SqFt) @ ₹1.62Cr*<br>
-  <b>3BHK+2T Premium</b> (1888 SqFt) @ ₹2.53Cr*<br>
-  <b>3BHK+3T Luxury</b> (2185–2305 SqFt) @ ₹2.95Cr*</p><br>
-
-  <ul style="text-align:left; max-width:600px; margin:20px auto; line-height:1.8;">
-    <li>✅ 20000 SqFt Grand Club House</li>
-    <li>✅ 76% Open Space</li>
-    <li>✅ Lush Open/Green Spaces</li>
-    <li>✅ Vastu Compliant Homes</li>
-    <li>✅ Ample Natural Lighting And Ventilation</li>
-    <li>✅ Premium Fittings And Fixtures</li>
-    <li>✅ Spacious And Luxurious Homes</li>
-    <li>✅ Patio Extra Large Balconies</li>
-  </ul>
+<section class="section location" id="location">
+  <h2>Location Advantages</h2>
+  <div class="grid">
+    <div class="card">📍 15 mins from Manyata Tech Park</div>
+    <div class="card">✈️ 25 mins to Kempegowda Airport</div>
+    <div class="card">🏫 Near Schools & Hospitals</div>
+  </div>
 </section>
 
-<!-- ====== CONTACT FORM (existing) ====== -->
+<section class="section plans" id="plans">
+  <h2>Floor Plans & Pricing</h2>
+  <div class="grid">
+    <div class="card"><strong>2 BHK</strong><br>Size: 1193 - 1242 sq.ft<br>Price: ₹1.62 Cr*</div>
+    <div class="card"><strong>3 BHK (2T Premium)</strong><br>Size: 1888 sq.ft<br>Price: ₹2.53 Cr*</div>
+    <div class="card"><strong>3 BHK (3T Premium)</strong><br>Size: 2185 - 2305 sq.ft<br>Price: ₹2.95 Cr*</div>
+  </div>
+</section>
+
+<section class="section why-godrej" id="why-godrej">
+  <h2>Why Choose Godrej?</h2>
+  <div class="grid">
+    <div class="card">🏆 Trusted Brand with 30+ Years Experience</div>
+    <div class="card">🔑 On-time Delivery Promise</div>
+    <div class="card">📈 High ROI & Investment Potential</div>
+  </div>
+</section>
+
 <section class="section form-section" id="lead-form">
   <h2>Get Complete Details</h2>
-  <p>Fill the form below to receive brochure, pricing, and offers</p>
   <form id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
     <input type="text" name="name" placeholder="Full Name" required />
     <input type="tel" name="phone" placeholder="Mobile Number" required />
+    <input type="email" name="_replyto" placeholder="Email Address (Optional)" />
     <select name="preferred_unit" required>
       <option value="" disabled selected>Select Preferred Unit</option>
       <option>2 BHK</option>
@@ -272,27 +321,24 @@
 
 <footer>
   <p>&copy; 2025 Godrej Properties. All Rights Reserved.</p>
-  <p>RERA No: PRM/KA/RERA/XXXXX</p>
 </footer>
 
 <script>
-  // ====== HAMBURGER MENU ======
+  // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  const navLinks = document.getElementById('navLinks');
 
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('nav-active');
+    navLinks.classList.toggle('show');
     hamburger.classList.toggle('toggle');
   });
 
-  // Close menu on link click
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  document.querySelectorAll('#navLinks a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('nav-active');
+      navLinks.classList.remove('show');
       hamburger.classList.remove('toggle');
     });
   });
 </script>
-
 </body>
 </html>
