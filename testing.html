@@ -5,159 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Godrej Thanisandra - Premium Apartments in Bangalore</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #222;
-      background: #FDFDFD;
+      background: #f0f4ff;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    /* Eclipse Navigation */
+
+    /* ======== NAVIGATION BAR ======== */
     nav {
-      width: 100%;
-      background: #181c25;
-      padding: 0 16px;
       position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-      box-shadow: 0 2px 18px rgba(0,0,0,0.08);
-    }
-    .nav-container {
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(0, 64, 128, 0.9);
+      color: #fff;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      height: 68px;
+      align-items: center;
+      padding: 15px 25px;
+      z-index: 9999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
-    .nav-logo {
-      font-size: 1.5rem;
-      color: #ffb300;
-      font-weight: bold;
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
       letter-spacing: 1px;
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 25px;
+      list-style: none;
     }
     .nav-links a {
       color: #fff;
       text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.2s;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
-    .nav-links a.active,
     .nav-links a:hover {
-      color: #FF5733;
+      color: #00e0ff;
     }
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      content: '';
-      width: 50%;
-      height: 2.5px;
-      background: linear-gradient(90deg, #FF5733 40%, #00D4FF 100%);
-      position: absolute;
-      left: 25%;
-      bottom: 0;
-      border-radius: 1px;
-      transition: width 0.2s;
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
     }
-    .nav-links a::after {
-      content: '';
-      display: block;
-      width: 0%;
-      height: 2.5px;
-      background: linear-gradient(90deg, #FF5733 40%, #00D4FF 100%);
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      border-radius: 1px;
-      transition: width 0.2s, left 0.2s;
+    .hamburger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+      transition: all 0.3s ease;
     }
-    .nav-links a.active::after {
-      width: 50%;
-      left: 25%;
+
+    /* Mobile Menu Active State */
+    .nav-active {
+      right: 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        background: rgba(0, 64, 128, 0.95);
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        height: 100vh;
+        transition: right 0.4s ease;
+        padding-top: 40px;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .hamburger.toggle div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.toggle div:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.toggle div:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
     }
 
     header {
-      background: url('https://www.godrejthanisandrabangalore.com/img/banner-image.webp') center/cover no-repeat;
+      background: linear-gradient(135deg, #0078d7cc, #00d4ffcc),
+        url('https://www.godrejthanisandrabangalore.com/img/banner-image.webp') center/cover no-repeat;
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      color: #fff;
-      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center; color: #fff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
       padding: 0 20px;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 0;
-    }
-    header > * {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
     }
     header h1 {
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 20px;
-      letter-spacing: 1px;
       text-transform: uppercase;
     }
-    header p {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-      font-weight: 600;
-    }
+    header p { font-size: 1.5rem; margin-bottom: 30px; font-weight: 600; }
     .cta-btn {
-      background: linear-gradient(90deg, #FF5733 0%, #00D4FF 100%);
+      background: linear-gradient(90deg, #00e0ff 0%, #0078d7 50%, #00e0ff 100%);
       color: #fff;
       padding: 18px 40px;
       border: none;
       border-radius: 50px;
       font-size: 1.2rem;
-      cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 0 20px #FF5733, 0 0 32px #00D4FF;
+      box-shadow: 0 0 15px #00cfff, 0 0 30px #00e0ff;
       position: relative;
       overflow: hidden;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+      transition: all 0.4s ease;
     }
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -40%;
-      width: 40%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.35);
-      transform: skewX(-25deg) translateX(0);
-      transition: transform 0.5s ease, opacity 0.3s ease;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .cta-btn:hover, .cta-btn:focus {
-      box-shadow: 0 0 30px #FF5733, 0 0 56px #00D4FF;
-      outline: none;
-    }
-    .cta-btn:hover::before {
-      transform: skewX(-25deg) translateX(150%);
-      opacity: 1;
-    }
-    /* Ensure header starts after nav */
-    header, .section {
-      margin-top: 68px;
-    }
+    .cta-btn:hover { box-shadow: 0 0 25px #00d8ff, 0 0 50px #00e0ff; }
 
     .section {
       padding: 60px 20px;
@@ -165,328 +133,166 @@
       max-width: 1200px;
       margin: auto;
     }
-    .highlights, .location, .plans, .why-godrej, .about-project, .form-section {
-      background-color: #FFFFFF;
+    .highlights, .location, .plans, .why-godrej, .form-section, .about, .gallery {
+      background-color: #ffffff;
       border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(255, 87, 51, 0.14);
+      box-shadow: 0 6px 15px rgba(0, 120, 215, 0.2);
       margin-bottom: 50px;
       padding: 40px 20px;
-      color: #222;
+      color: #004080;
     }
     h2 {
       font-size: 2.25rem;
       margin-bottom: 30px;
       font-weight: 700;
-      color: #FF5733;
+      color: #0078d7;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-shadow: 0 1px 2px rgba(255,87,51,0.18);
     }
     .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      margin-top: 20px;
     }
     .card {
-      background: linear-gradient(140deg,#FFF9EC, #EAF9FD 90%);
+      background: linear-gradient(145deg, #e0f0ff, #ffffff);
       padding: 25px 20px;
       border-radius: 12px;
       width: 300px;
-      box-shadow: 0 8px 20px rgba(255, 87, 51, 0.13);
+      box-shadow: 0 8px 20px rgba(0,120,215,0.15);
       font-weight: 600;
-      color: #444;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,212,255,0.22);
-    }
-    .about-details {
-      text-align: left;
-      max-width: 600px;
-      margin: 0 auto 18px auto;
-      font-size: 1.1rem;
-      line-height: 2;
-    }
-    .about-details span {
-      display: inline-block;
-      font-weight: 600;
-      color: #FF5733;
-      width: 190px;
-    }
-    .about-features {
-      max-width: 600px;
-      margin: 32px auto 0 auto;
-      font-size: 1.13rem;
-      text-align: left;
-      color: #29675c;
-      line-height: 2;
-      list-style: none;
-      padding: 0;
-    }
-    .about-features li {
-      margin: 8px 0;
-      padding-left: 18px;
-      position: relative;
-    }
-    .about-features li:before {
-      content: "✅";
-      position: absolute;
-      left: 0;
-      color: #43CD8B;
-      font-size: 1.2em;
+      box-shadow: 0 15px 30px rgba(0,120,215,0.25);
     }
 
-    .form-section form {
-      max-width: 520px;
-      margin: 0 auto;
-      text-align: left;
+    .gallery img {
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
-    form input, form select {
-      width: 100%;
-      padding: 14px 16px;
-      margin: 12px 0;
-      border: 2px solid #FF5733;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      color: #222;
-      transition: border-color 0.3s ease;
-    }
-    form input:focus, form select:focus {
-      border-color: #00D4FF;
-      outline: none;
-      box-shadow: 0 0 8px #00D4FF;
-    }
-    form button {
-      background: linear-gradient(90deg, #FF5733 0%, #00D4FF 100%);
-      color: white;
-      border: none;
-      padding: 15px 0;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      width: 100%;
-      box-shadow: 0 0 18px #FF5733, 0 0 44px #00D4FF inset;
-      transition: box-shadow 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    form button::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -40%;
-      width: 40%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.4);
-      transform: skewX(-25deg) translateX(0);
-      transition: transform 0.5s ease, opacity 0.3s ease;
-      opacity: 0;
-      pointer-events: none;
-    }
-    form button:hover, form button:focus {
-      box-shadow: 0 0 36px #FF5733, 0 0 60px #00D4FF inset;
-      outline: none;
-    }
-    form button:hover::before {
-      transform: skewX(-25deg) translateX(150%);
-      opacity: 1;
-    }
-    .success-message, .error-message {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-      display: none;
-    }
-    .success-message { color: #28a745; }
-    .error-message { color: #dc3545; }
-    .form-section p, .form-section a.cta-btn {
-      text-align: center;
-      margin-top: 20px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #FF5733;
-    }
-    .form-section a.cta-btn {
-      background: #25D366;
-      box-shadow: 0 0 12px #25d366;
-      border-radius: 50px;
-      padding: 15px 40px;
-      display: inline-block;
-      transition: box-shadow 0.3s ease;
-      color: #fff;
-    }
-    .form-section a.cta-btn:hover, .form-section a.cta-btn:focus {
-      box-shadow: 0 0 25px #25d366;
-      outline: none;
-    }
+    .gallery img:hover { transform: scale(1.05); }
+
     footer {
-      background: #181c25;
+      background: #004080;
       color: #fff;
       padding: 40px 20px;
       text-align: center;
       font-weight: 600;
-      letter-spacing: 0.1em;
     }
-    @media (max-width: 900px) {
-      .nav-container { flex-direction: column; height: auto; }
-      .nav-links { gap: 1rem; margin-bottom: 10px; }
-    }
+
     @media (max-width: 768px) {
       header h1 { font-size: 2.2rem; }
       header p { font-size: 1.2rem; }
       .grid { flex-direction: column; align-items: center; }
       .card { width: 90%; }
-      .section { padding: 40px 10px; }
-      .nav-container { padding-top: 10px; padding-bottom: 10px; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-      <div class="nav-logo">Godrej Thanisandra</div>
-      <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about-project">About Project</a>
-      </div>
-    </div>
-  </nav>
-  <header id="home">
-    <h1>Live the Godrej Life at Thanisandra</h1>
-    <p>2 & 3 BHK Premium Apartments in North Bangalore</p>
-    <a href="#lead-form" class="cta-btn">Get Brochure</a>
-  </header>
 
-  <section class="section about-project" id="about-project">
-    <h2>About Project</h2>
-    <div class="about-details">
-      <div><span>Total Land Parcel:</span> 7 Acres</div>
-      <div><span>Number Of Units:</span> 558 Units</div>
-      <div><span>Number Of Towers:</span> 10 Towers</div>
-      <div><span>Structure:</span> 2B+G+13</div>
-    </div>
-    <ul class="about-features">
-      <li>20000 SqFt Grand Club House</li>
-      <li>76% Open Space</li>
-      <li>Lush Open/Green Spaces</li>
-      <li>Vastu Compliant Homes</li>
-      <li>Ample Natural Lighting And Ventilation</li>
-      <li>Premium Fittings And Fixtures</li>
-      <li>Spacious And Luxurious Homes</li>
-      <li>Patio Extra Large Balconies</li>
-    </ul>
-  </section>
+<!-- ====== NAVIGATION ====== -->
+<nav>
+  <div class="logo">Godrej Thanisandra</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About Project</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
 
-  <section class="section highlights">
-    <h2>Project Highlights</h2>
-    <div class="grid">
-      <div class="card">📝 RERA Approval in Process</div>
-      <div class="card">🏙️ Prime Location – Thanisandra Road</div>
-      <div class="card">🏊 Clubhouse & Pool</div>
-      <div class="card">🛣️ Close to Airport & ORR</div>
-      <div class="card">🏢 2 & 3 BHK Options</div>
-      <div class="card">🌳 Sustainable Green Living</div>
-    </div>
-  </section>
+<!-- ====== HOME ====== -->
+<header id="home">
+  <h1>Live the Godrej Life at Thanisandra</h1>
+  <p>2 & 3 BHK Premium Apartments in North Bangalore</p>
+  <a href="#lead-form" class="cta-btn">Get Brochure</a>
+</header>
 
-  <section class="section location" id="gallery">
-    <h2>Location Advantages</h2>
-    <p>Perfectly placed for both work and life.</p>
-    <div class="grid">
-      <div class="card">📍 15 mins from Manyata Tech Park</div>
-      <div class="card">✈️ 25 mins to Kempegowda Airport</div>
-      <div class="card">🏫 Near Schools & Hospitals</div>
-      <div class="card">🚗 10 mins Drive from Bhartiya City</div>
-    </div>
-  </section>
+<!-- ====== GALLERY ====== -->
+<section class="section gallery" id="gallery">
+  <h2>Gallery</h2>
+  <div class="grid">
+    <img src="https://www.godrejthanisandrabangalore.com/img/gallery1.webp" alt="Gallery 1">
+    <img src="https://www.godrejthanisandrabangalore.com/img/gallery2.webp" alt="Gallery 2">
+    <img src="https://www.godrejthanisandrabangalore.com/img/gallery3.webp" alt="Gallery 3">
+  </div>
+</section>
 
-  <section class="section plans">
-    <h2>Floor Plans & Pricing</h2>
-    <div class="grid">
-      <div class="card">
-        <strong>2 BHK</strong><br>Size: 1193 - 1242 sq.ft<br>Price: ₹1.62 Cr*
-      </div>
-      <div class="card">
-        <strong>3 BHK (2T Premium)</strong><br>Size: 1888 sq.ft<br>Price: ₹2.53 Cr*
-      </div>
-      <div class="card">
-        <strong>3 BHK (3T Premium)</strong><br>Size: 2185 - 2305 sq.ft<br>Price: ₹2.95 Cr*
-      </div>
-    </div>
-  </section>
+<!-- ====== ABOUT PROJECT ====== -->
+<section class="section about" id="about">
+  <h2>About Project</h2>
+  <p><strong>Launching Now Luxury Apartments In Thanisandra @ Rs.1.62 Cr* Onwards</strong><br>
+  📍Thanisandra, North Bangalore</p><br>
+  <p><b>Total Land Parcel:</b> 7 Acres<br>
+  <b>Number Of Units:</b> 558 Units<br>
+  <b>Number Of Towers:</b> 10 Towers<br>
+  <b>Structure:</b> 2B+G+13<br>
+  <b>Typologies:</b> 2 and 3 BHK</p><br>
 
-  <section class="section why-godrej">
-    <h2>Why Choose Godrej?</h2>
-    <div class="grid">
-      <div class="card">🏆 Trusted Brand with 30+ Years Experience</div>
-      <div class="card">🔑 On-time Delivery Promise</div>
-      <div class="card">📈 High ROI & Investment Potential</div>
-    </div>
-  </section>
+  <p><b>2BHK</b> (1193–1242 SqFt) @ ₹1.62Cr*<br>
+  <b>3BHK+2T Premium</b> (1888 SqFt) @ ₹2.53Cr*<br>
+  <b>3BHK+3T Luxury</b> (2185–2305 SqFt) @ ₹2.95Cr*</p><br>
 
-  <section class="section form-section" id="lead-form">
-    <h2>Get Complete Details</h2>
-    <p>Fill the form below to receive brochure, pricing, and offers</p>
-    <form id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="tel" name="phone" placeholder="Mobile Number" required />
-      <input type="email" name="_replyto" placeholder="Email Address (Optional)" />
-      <select name="preferred_unit" required>
-        <option value="" disabled selected>Select Preferred Unit</option>
-        <option>2 BHK</option>
-        <option>3 BHK (2T Premium)</option>
-        <option>3 BHK (3T Premium)</option>
-      </select>
-      <input type="text" name="_gotcha" style="display:none" />
-      <input type="hidden" name="_subject" value="New Inquiry for Godrej Thanisandra" />
-      <input type="hidden" name="_cc" value="your-email@example.com" />
-      <button type="submit">Send Me Details</button>
-    </form>
-    <p class="success-message" id="success-msg">Thank you! Your inquiry has been received. We'll get back to you soon.</p>
-    <p class="error-message" id="error-msg">Oops! Something went wrong. Please try again.</p>
-    <p>or</p>
-    <a href="https://wa.me/917989506122?text=I'm%20interested%20in%20Godrej%20Thanisandra%20project" class="cta-btn">📱 Chat on WhatsApp</a>
-  </section>
+  <ul style="text-align:left; max-width:600px; margin:20px auto; line-height:1.8;">
+    <li>✅ 20000 SqFt Grand Club House</li>
+    <li>✅ 76% Open Space</li>
+    <li>✅ Lush Open/Green Spaces</li>
+    <li>✅ Vastu Compliant Homes</li>
+    <li>✅ Ample Natural Lighting And Ventilation</li>
+    <li>✅ Premium Fittings And Fixtures</li>
+    <li>✅ Spacious And Luxurious Homes</li>
+    <li>✅ Patio Extra Large Balconies</li>
+  </ul>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Godrej Properties. All Rights Reserved.</p>
-    <p>RERA No: PRM/KA/RERA/XXXXX</p>
-  </footer>
-  <script>
-    // nav active state on scroll
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', function() {
-        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-      });
+<!-- ====== CONTACT FORM (existing) ====== -->
+<section class="section form-section" id="lead-form">
+  <h2>Get Complete Details</h2>
+  <p>Fill the form below to receive brochure, pricing, and offers</p>
+  <form id="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="tel" name="phone" placeholder="Mobile Number" required />
+    <select name="preferred_unit" required>
+      <option value="" disabled selected>Select Preferred Unit</option>
+      <option>2 BHK</option>
+      <option>3 BHK (2T Premium)</option>
+      <option>3 BHK (3T Premium)</option>
+    </select>
+    <button type="submit">Send Me Details</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Godrej Properties. All Rights Reserved.</p>
+  <p>RERA No: PRM/KA/RERA/XXXXX</p>
+</footer>
+
+<script>
+  // ====== HAMBURGER MENU ======
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+    hamburger.classList.toggle('toggle');
+  });
+
+  // Close menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav-active');
+      hamburger.classList.remove('toggle');
     });
+  });
+</script>
 
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('success-msg');
-    const errorMsg = document.getElementById('error-msg');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (response.ok) {
-        successMsg.style.display = 'block';
-        errorMsg.style.display = 'none';
-        form.reset();
-      } else {
-        errorMsg.style.display = 'block';
-        successMsg.style.display = 'none';
-      }
-    });
-  </script>
 </body>
 </html>
